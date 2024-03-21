@@ -26,6 +26,6 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                 name: mon-site
-                path: .
-            - run: ls
+                path: ./dist
+            - run: ls dist
         
