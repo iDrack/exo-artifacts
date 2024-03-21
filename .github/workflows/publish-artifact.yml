@@ -1,0 +1,19 @@
+name: Upload Artifact
+on: 
+    push:
+        branches:
+            - main
+jobs:
+    job-1:
+        name: publish
+        runs-on: ubuntu-latest
+        steps:
+            - run: npm install
+            - run: npm run test
+            - run: npm run build
+            - uses: actions/upload-artifact@v4
+              with:
+                name: mon-site
+                path: .dist/
+
+        
