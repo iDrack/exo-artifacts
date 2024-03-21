@@ -17,5 +17,12 @@ jobs:
               with:
                 name: mon-site
                 path: ./dist/
-
+    job-2:
+        name: list-artefact
+        needs: job-1
+        runs-on: ubuntu-latest
+        steps:
+            - name: download artifact
+              uses: actions/download-artifact@v4
+            - run: ls .
         
