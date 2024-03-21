@@ -2,7 +2,7 @@ name: Upload Artifact
 on: 
     push:
         branches:
-            - main
+            - dev
 jobs:
     job-1:
         name: publish
@@ -26,6 +26,6 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                 name: mon-site
-                path: ./dist
-            - run: ls dist
+                path: .
+            - run: ls
         

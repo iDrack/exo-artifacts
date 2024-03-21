@@ -1,0 +1,17 @@
+name: demonoutput
+run-name: "Execution de ${{ github.workflow}} pour le commit ${{ github.event.head_commit.message}}"
+on: push
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - id: etape1
+              name: set VAR1
+              run: echo "VAR1=Hello" >> $GITHUB_OUTPUT
+            - id: etape2
+              name: set VAR2
+              run: echo "VAR2=World" >> $GITHUB_OUTPUT
+            - id: etape3
+              name: echo VAR1 VAR2
+              run: echo ${{steps.etape1.outputs.VAR1}} ${{steps.etape2.outputs.VAR2}}
+    
