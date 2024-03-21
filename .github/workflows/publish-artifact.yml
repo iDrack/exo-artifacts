@@ -27,5 +27,5 @@ jobs:
               with:
                 name: mon-site
                 path: .
-            - run: ls mon-site
+            - run: ls
         
