@@ -1,0 +1,18 @@
+on:
+    workflow_dispatch
+
+jobs:
+    job1:
+        uses: iDrack/exo-artifacts/.github/workflows/output-test.yml@main
+    job2:
+        runs-on: ubuntu-latest
+        needs: job1
+        steps:
+            - run: echo "${{ needs.job1.outputs.sortie1 }} ${{ needs.job1.outputs.sortie1 }}"
+            - run: echo "$NEED_JSON"
+              env: 
+                NEED_JSON: ${{ toJSON(needs)}}
+            
+    job3:
+        runs-on: ubuntu-latest
+        

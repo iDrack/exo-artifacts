@@ -1,6 +1,13 @@
 name: demonoutput
 run-name: "Execution de ${{ github.workflow }} pour le commit ${{ github.event.head_commit.message}}"
-on: push
+on: 
+  workflow_call:
+    outputs: 
+      sortie1: 
+        value: ${{ jobs.job1.outputs.sortie1 }}
+      sortie2: 
+        value: ${{ jobs.job1.outputs.sortie2 }}
+    
 jobs:
     job1:
         name: job-1
